@@ -1,2 +1,2 @@
-# GenForm
-![Release](https://jitpack.io/v/NassirAlawar/GenForm.svg)
+# genform
+![Release](https://jitpack.io/v/NassirAlawar/genform.svg)
