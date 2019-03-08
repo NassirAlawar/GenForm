@@ -26,5 +26,9 @@ abstract class BaseGenFormAdapter<ViewModel: ArrayList<GenFormItem>>(
 
     override fun getItemCount(): Int = items.size
 
+    override fun getItemViewType(position: Int): Int {
+        return items[position].layoutResourceId()
+    }
+
     abstract fun update(items: ViewModel)
 }
