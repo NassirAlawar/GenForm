@@ -2,5 +2,15 @@
 ![Release](https://jitpack.io/v/NassirAlawar/genform.svg)
 
 ```groovy
-implementation "com.github.nassiralawar:genform:0.1.3"
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    implementation "com.github.nassiralawar:genform:0.1.3"
+}
 ```
