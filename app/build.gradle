@@ -8,13 +8,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.NassirAlawar'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion 16
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
@@ -27,10 +27,25 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:$android_support_version"
-    implementation "com.android.support:recyclerview-v7:$android_support_version"
-    implementation "com.android.databinding:library:$android_binding_version"
+    implementation ("androidx.appcompat:appcompat") {
+        version {
+            strictly "[1.0,2.0)"
+            prefer "$androidx_appcompat"
+        }
+    }
+    implementation ("androidx.recyclerview:recyclerview") {
+        version {
+            strictly "[1.0,2.0)"
+            prefer "$androidx_appcompat"
+        }
+    }
+    implementation ("androidx.databinding:databinding-runtime") {
+        version {
+            strictly "[4.0,5.0)"
+            prefer "$androidx_binding_version"
+        }
+    }
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }
